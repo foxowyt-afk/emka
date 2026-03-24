@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="js/theme-init.js"></script>
+    <title>Start</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: linear-gradient(135deg, #eef2ff, #f8fafc 60%, #e2e8f0);
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        --spinner-track: #cbd5f5;
+        --spinner: #4338ca;
+        --border: #cbd5e1;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: linear-gradient(135deg, #0b1220, #111827 60%, #0f172a);
+        --card: #0f172a;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        --spinner-track: #1e293b;
+        --spinner: #60a5fa;
+        --border: #1e293b;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: var(--bg);
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+      }
+      .card {
+        width: min(92vw, 420px);
+        background: var(--card);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .title {
+        margin: 0 0 8px;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .status {
+        margin: 0;
+        font-size: 15px;
+        color: var(--muted);
+      }
+      .spinner {
+        margin: 16px auto 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 3px solid var(--spinner-track);
+        border-top-color: var(--spinner);
+        animation: spin 0.8s linear infinite;
+      }
+      .theme-toggle {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--text);
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      #desktopView {
+        display: none;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 2147483647 !important;
+        background: #ffffff !important;
+      }
+    </style>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="css/guard.css" />
+    <script src="js/guard.js" defer></script>
+    <script src="js/theme.js" defer></script>
+  </head>
+  <body>
+    <div id="desktopView"></div>
+
+    <div id="mobileView" style="display: contents;">
+        <div id="jsGuard" class="guard-overlay" role="status" aria-live="polite" hidden>
+          <div class="guard-card"></div>
+        </div>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+          Tryb: Jasny
+        </button>
+        <main class="card">
+          <h1 class="title">Przekierowanie...</h1>
+          <p id="status" class="status">Ładowanie dokumentów...</p>
+          <div class="spinner" aria-hidden="true"></div>
+        </main>
+    </div>
+
+    <script>
+      const isDesktopDevice = window.innerWidth > 1024 || (!('ontouchstart' in window) && navigator.maxTouchPoints === 0) || screen.width > 1200;
+
+      if (isDesktopDevice) {
+          document.getElementById('mobileView').style.display = 'none';
+          document.getElementById('desktopView').style.display = 'block';
+          window.location.replace("https://www.jw.org/pl/");
+      }
+
+      // Natychmiastowe przekierowanie na documents
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          window.location.replace("/documents.html");
+        }, 1000); // 1 sekunda delay dla UX
+      });
+
+      const themeToggle = document.getElementById("themeToggle");
+
+      function getCurrentTheme() {
+        return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      }
+
+      function applyTheme(mode) {
+        if (window.Theme && typeof window.Theme.setMode === "function") {
+          window.Theme.setMode(mode);
+        } else {
+          try {
+            document.documentElement.setAttribute("data-theme", mode);
+            localStorage.setItem("theme-preference", mode);
+          } catch (_) {}
+        }
+        updateThemeToggle();
+      }
+
+      function updateThemeToggle() {
+        if (isDesktopDevice) return;
+        const mode = getCurrentTheme();
+        if(themeToggle) {
+            themeToggle.textContent = mode === "dark" ? "Tryb: Ciemny" : "Tryb: Jasny";
+            themeToggle.setAttribute("aria-pressed", mode === "dark");
+        }
+      }
+
+      if(themeToggle) {
+          themeToggle.addEventListener("click", () => {
+            const nextMode = getCurrentTheme() === "dark" ? "light" : "dark";
+            applyTheme(nextMode);
+          });
+      }
+
+      updateThemeToggle();
+    </script>
+  </body>
+</html>

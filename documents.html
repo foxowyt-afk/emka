@@ -1,0 +1,230 @@
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>sObywatel 4.0</title>
+    <script src="js/theme-init.js"></script>
+
+    <link rel="preload" href="css/main.css" as="style" />
+    <link rel="preload" href="css/common.css" as="style" />
+    <link rel="preload" href="css/pages/documents.css" as="style" />
+    <link
+      rel="preload"
+      href="assets/fonts/roboto_500_latin.woff2"
+      as="font"
+      type="font/woff2"
+    />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="stylesheet" href="css/main.css" data-n-g />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/pages/documents.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/guard.css" />
+
+    <script src="js/guard.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/header.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/pages/documents.js" defer></script>
+  </head>
+
+  <body class="dashboard-page">
+    <div
+      id="jsGuard"
+      class="guard-overlay"
+      role="status"
+      aria-live="polite"
+      hidden
+    >
+      <div class="guard-card"></div>
+    </div>
+    <header class="app-header dashboard-header">
+      <div class="header-left">
+        <div id="inicjaly1">
+          <img
+            src="assets/icons/coi_common_ui_ic_mobywatel_logo.svg"
+            alt="mObywatel"
+          />
+        </div>
+        <span id="header-title" class="header-title">Dokumenty</span>
+      </div>
+      <div class="header-right">
+        <div id="chatbot" aria-label="Asystent" title="Asystent">
+          <svg
+            class="chatbot-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            role="img"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M10,11C10,11.552 9.552,12 9,12C8.448,12 8,11.552 8,11C8,10.448 8.448,10 9,10C9.552,10 10,10.448 10,11Z"
+            ></path>
+            <path
+              fill="currentColor"
+              d="M15,12C15.552,12 16,11.552 16,11C16,10.448 15.552,10 15,10C14.448,10 14,10.448 14,11C14,11.552 14.448,12 15,12Z"
+            ></path>
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M7.5,3.75C7.5,3.336 7.836,3 8.25,3C8.664,3 9,3.336 9,3.75V5H15V3.75C15,3.336 15.336,3 15.75,3C16.164,3 16.5,3.336 16.5,3.75V5.031C18.225,5.246 19.609,6.56 19.93,8.25H20.5C21.881,8.25 23,9.369 23,10.75V12.25C23,13.631 21.881,14.75 20.5,14.75H19.93C19.579,16.601 17.953,18 16,18H9.657C8.596,18 7.579,18.421 6.828,19.172L5.707,20.293C5.077,20.923 4,20.477 4,19.586V14.75H3.5C2.119,14.75 1,13.631 1,12.25V10.75C1,9.369 2.119,8.25 3.5,8.25H4.07C4.07,8.25 4.07,8.25 4.07,8.25C4.391,6.56 5.775,5.246 7.5,5.031V3.75ZM4,9.75H3.5C2.948,9.75 2.5,10.198 2.5,10.75V12.25C2.5,12.802 2.948,13.25 3.5,13.25H4V9.75ZM20,13.25V9.75H20.5C21.052,9.75 21.5,10.198 21.5,10.75V12.25C21.5,12.802 21.052,13.25 20.5,13.25H20ZM16,6.5H8C6.619,6.5 5.5,7.619 5.5,9V18.379L5.768,18.111C6.799,17.08 8.198,16.5 9.657,16.5H16C17.381,16.5 18.5,15.381 18.5,14V9C18.5,7.619 17.381,6.5 16,6.5Z"
+            ></path>
+          </svg>
+        </div>
+        <div id="dzwonek" aria-label="Powiadomienia" title="Powiadomienia">
+          <svg
+            class="notif-bell"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            role="img"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M12.75,2C12.75,1.586 12.414,1.25 12,1.25C11.586,1.25 11.25,1.586 11.25,2V3.038C7.736,3.412 4.999,6.386 4.999,9.998V12.617C4.999,13.107 4.82,13.58 4.494,13.946L2.962,15.67C1.816,16.959 2.731,18.998 4.457,18.998H11.55L11.559,18.998C11.853,18.997 12.15,18.997 12.444,18.998L12.453,18.998H19.546C21.271,18.998 22.187,16.959 21.041,15.67L19.505,13.942C19.179,13.576 18.999,13.103 18.999,12.613V12.25C18.999,11.836 18.664,11.5 18.249,11.5C17.835,11.5 17.499,11.836 17.499,12.25V12.613C17.499,13.47 17.814,14.298 18.383,14.938L19.92,16.666C20.206,16.989 19.977,17.498 19.546,17.498H12.453L12.45,17.498C12.152,17.497 11.851,17.497 11.553,17.498L11.55,17.498H4.457C4.026,17.498 3.797,16.989 4.083,16.666L5.615,14.943C6.185,14.302 6.499,13.475 6.499,12.617V9.998C6.499,6.961 8.962,4.498 11.999,4.498C12.398,4.498 12.75,4.195 12.75,3.796V2Z"
+            ></path>
+            <path
+              fill="currentColor"
+              d="M9.5,19H8V19.5C8,21.157 9.343,22.5 11,22.5H13C14.657,22.5 16,21.157 16,19.5V19H14.5V19.5C14.5,20.328 13.828,21 13,21H11C10.172,21 9.5,20.328 9.5,19.5V19Z"
+            ></path>
+            <path
+              fill="#cd291c"
+              d="M18,6m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </header>
+    <h2 id="main-title" class="dashboard-section-title dashboard-main-content">
+      Dokumenty
+    </h2>
+    <section id="wybor-p">
+      <div id="cards-container"></div>
+      <div class="dashboard-under-card">
+        <a href="#" id="customize-view-btn" class="customize-view-link"
+          >Dostosuj widok</a
+        >
+      </div>
+    </section>
+    <button
+      class="floating-add-doc-btn"
+      type="button"
+      aria-label="Dodaj dokument"
+      id="add-doc-btn"
+    >
+      <span class="icon-plus" aria-hidden="true">+</span>
+      <span>Dodaj dokument</span>
+    </button>
+
+    <div id="add-doc-overlay" class="overlay" style="display: none">
+      <div class="overlay-backdrop"></div>
+      <div class="overlay-panel">
+        <div class="overlay-handle"></div>
+        <h2 class="overlay-title">Dodaj dokument</h2>
+        <div class="overlay-content">
+          <div class="doc-option">
+            <label class="doc-checkbox">
+              <input type="checkbox" data-doc-id="mdowod" />
+              <span class="checkmark"></span>
+              <span class="doc-label">mDowód</span>
+            </label>
+          </div>
+          <div class="doc-option">
+            <label class="doc-checkbox">
+              <input type="checkbox" data-doc-id="diia" />
+              <span class="checkmark"></span>
+              <span class="doc-label">Diia.pl</span>
+            </label>
+          </div>
+          <div class="doc-option">
+            <label class="doc-checkbox">
+              <input type="checkbox" data-doc-id="legszk" />
+              <span class="checkmark"></span>
+              <span class="doc-label">Legitymacja szkolna</span>
+            </label>
+          </div>
+          <div class="doc-option">
+            <label class="doc-checkbox">
+              <input type="checkbox" data-doc-id="legstu" />
+              <span class="checkmark"></span>
+              <span class="doc-label">Legitymacja studencka</span>
+            </label>
+          </div>
+          <div class="doc-option">
+            <label class="doc-checkbox">
+              <input type="checkbox" data-doc-id="prawojazdy" />
+              <span class="checkmark"></span>
+              <span class="doc-label">Prawo jazdy</span>
+            </label>
+          </div>
+        </div>
+        <button class="overlay-close-btn" id="close-add-overlay">Gotowe</button>
+      </div>
+    </div>
+
+    <div id="customize-overlay" class="overlay" style="display: none">
+      <div class="overlay-backdrop"></div>
+      <div class="overlay-panel">
+        <div class="overlay-handle"></div>
+        <h2 class="overlay-title">Dostosuj widok</h2>
+        <div class="overlay-content">
+          <p class="overlay-hint">
+            Przeciągnij, aby zmienić kolejność dokumentów
+          </p>
+          <div id="sortable-cards" class="sortable-list"></div>
+        </div>
+        <button class="overlay-close-btn" id="close-customize-overlay">
+          Gotowe
+        </button>
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <div class="bottom-nav__tab bottom-nav__tab--active">
+        <img src="assets/icons/if006_documents_fill.svg" alt="home.html" />
+        <span class="bottom-nav__active-text">Dokumenty</span>
+      </div>
+      <div
+        class="bottom-nav__tab unfill"
+        onclick="window.location.href = 'services.html'"
+      >
+        <img src="assets/icons/if002_services.svg" alt="services.html" />
+        <span>Usługi</span>
+      </div>
+      <div
+        class="bottom-nav__tab unfill"
+        onclick="window.location.href = 'qr.html'"
+      >
+        <img src="assets/icons/if004_scan.svg" alt="qr.html" />
+        <span>Kod QR</span>
+      </div>
+      <div
+        class="bottom-nav__tab unfill"
+        onclick="window.location.href = 'more.html'"
+      >
+        <img src="assets/icons/if005_more.svg" alt="more.html" />
+        <span>Więcej</span>
+      </div>
+    </div>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e0fcbe84d35c137',t:'MTc3NDI5MzY1OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

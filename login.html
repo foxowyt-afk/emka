@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>sObywatel 4.0</title>
+    <script src="js/theme-init.js"></script>
+
+    <link rel="preload" href="css/main.css" as="style" />
+    <link rel="preload" href="css/common.css" as="style" />
+    <link rel="preload" href="css/pages/login.css" as="style" />
+    <link
+      rel="preload"
+      href="assets/fonts/roboto_400_latin.woff2"
+      as="font"
+      type="font/woff2"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/roboto_500_latin.woff2"
+      as="font"
+      type="font/woff2"
+    />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/pages/login.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/guard.css" />
+
+    <script src="js/guard.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/pages/login.js" defer></script>
+    <script src="js/header.js" async></script>
+  </head>
+
+  <body>
+    <div
+      id="jsGuard"
+      class="guard-overlay"
+      role="status"
+      aria-live="polite"
+      hidden
+    >
+      <div class="guard-card"></div>
+    </div>
+    <div class="login">
+      <header class="login__header">
+        <div class="login__logo-group">
+          <img
+            src="assets/icons/mobywatel_logo_horizontal.svg"
+            alt="mObywatel"
+            class="login__logo-image app-logo"
+          />
+        </div>
+        <div class="login__intro">
+          <h1 class="login__title">Dzień dobry!</h1>
+          <p class="login__subtitle">Zaloguj się do aplikacji.</p>
+        </div>
+      </header>
+      <main class="login__main">
+        <form id="loginForm" class="login__form">
+          <label class="login__password-label" for="passwordInput">Hasło</label>
+          <div class="login__password">
+            <input
+              id="passwordInput"
+              type="password"
+              class="login__password-input"
+              autocomplete="current-password"
+            />
+            <button type="button" class="login__eye" aria-label="Pokaż hasło">
+              <img src="assets/icons/show_password.svg" alt="Pokaż hasło" />
+            </button>
+          </div>
+          <div
+            id="passwordError"
+            class="login__error"
+            aria-live="polite"
+            style="
+              display: none;
+              color: #b91c1c;
+              margin: 1px 0 -2px 0;
+              font-size: 13px;
+            "
+          ></div>
+          <a class="login__forgot" href="#">Nie pamiętasz hasła?</a>
+        </form>
+      </main>
+      <button class="login__submit" type="submit" form="loginForm">
+        Zaloguj się
+      </button>
+
+      <footer class="login__footer">
+        <div class="login__footerImages">
+          <img
+            src="assets/icons/kpo_logo.svg"
+            alt="KPO"
+            class="login__footerLogo"
+          />
+          <img
+            src="assets/icons/rp_logo.svg"
+            alt="RP"
+            class="login__footerLogo"
+          />
+          <img
+            src="assets/icons/nextgeneu_logo.svg"
+            alt="NextGenerationEU"
+            class="login__footerLogo"
+          />
+          <span class="login__footerDivider" aria-hidden="true"></span>
+          <img
+            src="assets/icons/mc_logo.svg"
+            alt="MC"
+            class="login__footerLogo"
+          />
+        </div>
+        <p class="login__version">wersja 4.75.0 (5672)</p>
+      </footer>
+    </div>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e0fa33ca80c34f2',t:'MTc3NDI5MTk5Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
