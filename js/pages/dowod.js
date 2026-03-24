@@ -4,7 +4,7 @@
       return;
     }
 
-    const bgUrl = "/assets/dowod/mid_background_main.webp";
+    const bgUrl = "/assets/dowod/mid_background_main.jpeg";
     const cache = await caches.open("mobywatel-v3");
 
     const cached = await cache.match(bgUrl);
