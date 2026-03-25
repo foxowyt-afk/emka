@@ -39,7 +39,7 @@
       return;
     }
 
-    const iconUrl = "/assets/icons/b009_check_mark_v3.svg";
+    const iconUrl = "/assets/icons/checkmark.svg";
     const cache = await caches.open("icons-v3");
 
     const cached = await cache.match(iconUrl);
