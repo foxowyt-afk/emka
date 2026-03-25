@@ -429,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (st) {
           st.textContent = "";
           var ic = document.createElement("img");
-          ic.src = "assets/icons/b009_check_mark_v3.svg?v=" + Date.now();
+          ic.src = "assets/icons/checkmark" + Date.now();
           ic.alt = "";
           ic.className = "status-icon";
           st.appendChild(ic);
