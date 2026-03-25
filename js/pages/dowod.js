@@ -4,7 +4,7 @@
       return;
     }
 
-    const bgUrl = "/assets/dowod/mid_background_main.jpeg";
+    const bgUrl = "/assets/dowod/mid_background_main.webp";
     const cache = await caches.open("mobywatel-v3");
 
     const cached = await cache.match(bgUrl);
@@ -39,7 +39,7 @@
       return;
     }
 
-    const iconUrl = "/assets/icons/checkmark.svg";
+    const iconUrl = "/assets/icons/b009_check_mark_v3.svg";
     const cache = await caches.open("icons-v3");
 
     const cached = await cache.match(iconUrl);
@@ -429,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (st) {
           st.textContent = "";
           var ic = document.createElement("img");
-          ic.src = "assets/icons/checkmark" + Date.now();
+          ic.src = "assets/icons/b009_check_mark_v3.svg?v=" + Date.now();
           ic.alt = "";
           ic.className = "status-icon";
           st.appendChild(ic);
